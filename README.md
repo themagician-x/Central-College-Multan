@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Central-College-Multan
 
-## Getting Started
+Official website for **Central College Multan** — a not-for-profit institution offering
+quality education from Intermediate to Masters and Law since 1992.
 
-First, run the development server:
+Built with **Next.js 16** (App Router) and **Tailwind CSS v4**, deployed on **Vercel**.
+
+## Pages
+
+- **Home** — hero, live stats, programs, Law College, campus life
+- **Programs** — Intermediate, Bachelors, Masters, and LL.B.
+- **Campus** — college story, Central Law College, admission FAQs
+- **Faculty** — leadership, teaching faculty, and support staff
+- **Short Courses** — professional e-learn courses
+- **Events** — campus life and the academic year
+- **Contact** — location, phone, and enquiry form
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Scripts
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build      # production build
+npm run start      # serve the production build
+npm run lint       # eslint
+node scripts/responsive-check.mjs   # verify no horizontal overflow (dev server running)
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Design
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Brand palette — navy `#06377b` + marigold `#faa61a`, drawn from the college logo.
+Typography: Fraunces (display), Manrope (body), IBM Plex Mono (labels).
+Fully responsive and verified across mobile, tablet, and desktop widths.

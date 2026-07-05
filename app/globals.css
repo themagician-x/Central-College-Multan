@@ -1,26 +1,155 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Central College brand — navy #06377b + marigold #faa61a + black on white */
+  --color-cream: #f2f5fa;
+  --color-paper: #fafbfe;
+  --color-mist: #e3e9f3;
+  --color-mist-deep: #ccd7e8;
+
+  --color-navy-950: #051f42;
+  --color-navy-900: #06377b; /* brand navy */
+  --color-navy-800: #0a428c;
+  --color-navy-700: #0e4fa2;
+  --color-navy-600: #1663bf;
+  --color-navy-100: #d6e2f4;
+
+  --color-gold-700: #a86c05;
+  --color-gold-600: #d98a12;
+  --color-gold-500: #faa61a; /* brand marigold */
+  --color-gold-400: #fcbc4d;
+  --color-gold-100: #fdecc9;
+
+  --color-ink: #14213a;
+  --color-ink-soft: #3a465e;
+  --color-ink-mute: #6b7690;
+
+  --font-display: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
+  --font-sans: var(--font-manrope), system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html {
+  scroll-behavior: smooth;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
+html {
+  /* never allow a decorative element to push a sideways scrollbar */
+  overflow-x: hidden;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* media never overflows its container */
+img,
+svg,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* long words / emails / urls wrap instead of overflowing on narrow screens */
+p,
+h1,
+h2,
+h3,
+a,
+li,
+dd {
+  overflow-wrap: break-word;
+}
+
+/* Fluid heading tiers — scale smoothly across every viewport width */
+.fluid-hero {
+  font-size: clamp(2.5rem, 1.6rem + 4.5vw, 4.5rem);
+  line-height: 1.03;
+}
+.fluid-title {
+  font-size: clamp(1.9rem, 1.35rem + 2.7vw, 3rem);
+  line-height: 1.08;
+}
+.fluid-h2 {
+  font-size: clamp(1.6rem, 1.25rem + 1.7vw, 2.25rem);
+  line-height: 1.14;
+}
+
+::selection {
+  background: var(--color-gold-400);
+  color: var(--color-navy-950);
+}
+
+/* Eyebrow label — mono, tracked, marigold */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-gold-700);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+.eyebrow::before {
+  content: "";
+  width: 1.75rem;
+  height: 1px;
+  background: var(--color-gold-500);
+  flex: none;
+}
+.eyebrow-light {
+  color: var(--color-gold-400);
+}
+
+/* Fine diagonal ray pattern for dark navy panels */
+.crest-lines {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(250, 166, 26, 0.08) 0px,
+    rgba(250, 166, 26, 0.08) 1px,
+    transparent 1px,
+    transparent 14px
+  );
+}
+
+/* Reveal-on-scroll */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.3, 1),
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Balanced headings */
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+/* Tabular figures for stats */
+.tnum {
+  font-variant-numeric: tabular-nums;
 }
