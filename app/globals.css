@@ -40,8 +40,12 @@ html {
 }
 
 html {
-  /* never allow a decorative element to push a sideways scrollbar */
-  overflow-x: hidden;
+  /* Never let a decorative element push a sideways scrollbar.
+     `clip`, not `hidden`: setting overflow-x to hidden forces the computed
+     overflow-y to auto, which turns the page into its own scroll container and
+     stops position:sticky working on anything inside it. `clip` cuts the
+     overflow without creating a scroll container, so the header still sticks. */
+  overflow-x: clip;
 }
 
 body {
@@ -49,7 +53,7 @@ body {
   color: var(--color-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* media never overflows its container */
