@@ -26,12 +26,18 @@ export default function Navbar() {
       {/* utility bar */}
       <div className="bg-navy-950 text-navy-100/80 text-xs">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-1.5 sm:px-6">
+          {/* the programs list is the first thing to go on a narrow screen —
+              the number beside it is worth more than the detail */}
           <p className="truncate font-mono tracking-wide">
-            Admissions open — Intermediate, Bachelors, Masters &amp; LL.B.
+            Admissions open
+            <span className="hidden sm:inline">
+              {" "}
+              — Intermediate, Bachelors, Masters &amp; LL.B.
+            </span>
           </p>
           <a
             href={college.phoneHref}
-            className="-my-1.5 hidden shrink-0 py-2 font-mono tracking-wide hover:text-gold-400 sm:block"
+            className="-my-1.5 shrink-0 py-2 font-mono tracking-wide hover:text-gold-400"
           >
             {college.phone}
           </a>
