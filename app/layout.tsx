@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { siteUrl } from "@/lib/site";
 import { Fraunces, Manrope, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -21,13 +22,27 @@ const plexMono = IBM_Plex_Mono({
   weight: ["400", "500", "600"],
 });
 
+const title = "Central College Multan — Est. 1992";
+const description =
+  "Central College Multan — a not-for-profit institution offering quality education from Intermediate to Masters and Law since 1992. Khakwani House, LMQ Road, Multan.";
+
 export const metadata: Metadata = {
+  metadataBase: siteUrl,
   title: {
-    default: "Central College Multan — Est. 1992",
+    default: title,
     template: "%s · Central College Multan",
   },
-  description:
-    "Central College Multan — a not-for-profit institution offering quality education from Intermediate to Masters and Law since 1992. Khakwani House, LMQ Road, Multan.",
+  description,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    siteName: "Central College Multan",
+    title,
+    description,
+    url: "/",
+    locale: "en_PK",
+  },
+  twitter: { card: "summary_large_image", title, description },
 };
 
 export default function RootLayout({

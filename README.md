@@ -1,7 +1,12 @@
 # Central-College-Multan
 
-Official website for **Central College Multan** — a not-for-profit institution offering
+A website for **Central College Multan** — a not-for-profit institution offering
 quality education from Intermediate to Masters and Law since 1992.
+
+> **Student project.** Built as part of a BSIT final-year project, alongside the
+> [eLibrary Management System](https://github.com/themagician-x/eLibrary-Management-Syestem-for-Central-College-Multan).
+> It is not the college's official web presence, and the figures on it are
+> illustrative.
 
 Built with **Next.js 16** (App Router) and **Tailwind CSS v4**, deployed on **Vercel**.
 
@@ -36,3 +41,15 @@ node scripts/responsive-check.mjs   # verify no horizontal overflow (dev server 
 Brand palette — navy `#06377b` + marigold `#faa61a`, drawn from the college logo.
 Typography: Fraunces (display), Manrope (body), IBM Plex Mono (labels).
 Fully responsive and verified across mobile, tablet, and desktop widths.
+
+## Deploying
+
+A standard Next.js deployment on Vercel. The site needs no secrets — the only
+variable is `NEXT_PUBLIC_SITE_URL`, the public origin (e.g.
+`https://centralcollege.aqeelahmed.dev`), and it is only needed once a custom
+domain is in front of the deployment. Without it the app falls back to the URL
+Vercel assigns, so `*.vercel.app` works untouched.
+
+That one value feeds `metadataBase`, the canonical link, `robots.txt` and
+`sitemap.xml`, so setting it is what makes shared links and search listings
+point at the real domain rather than the deployment URL.
