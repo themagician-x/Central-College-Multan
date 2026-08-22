@@ -38,10 +38,13 @@ export default function Footer() {
           {/* explore */}
           <nav aria-label="Footer">
             <p className="eyebrow eyebrow-light mb-4">Explore</p>
-            <ul className="space-y-2.5 text-sm">
+            <ul className="-my-1.5 text-sm">
               {navLinks.slice(1).map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="transition-colors hover:text-gold-400">
+                  <Link
+                    href={l.href}
+                    className="inline-block py-2 transition-colors hover:text-gold-400"
+                  >
                     {l.label}
                   </Link>
                 </li>
@@ -55,12 +58,18 @@ export default function Footer() {
             <ul className="space-y-3 text-sm leading-relaxed">
               <li>{college.address}</li>
               <li>
-                <a href={college.phoneHref} className="transition-colors hover:text-gold-400">
+                <a
+                  href={college.phoneHref}
+                  className="-my-1 inline-block py-2 transition-colors hover:text-gold-400"
+                >
                   {college.phone}
                 </a>
               </li>
               <li>
-                <a href={`mailto:${college.email}`} className="transition-colors hover:text-gold-400">
+                <a
+                  href={`mailto:${college.email}`}
+                  className="-my-1 inline-block break-words py-2 transition-colors hover:text-gold-400"
+                >
                   {college.email}
                 </a>
               </li>

@@ -31,7 +31,7 @@ export default function Navbar() {
           </p>
           <a
             href={college.phoneHref}
-            className="hidden shrink-0 font-mono tracking-wide hover:text-gold-400 sm:block"
+            className="-my-1.5 hidden shrink-0 py-2 font-mono tracking-wide hover:text-gold-400 sm:block"
           >
             {college.phone}
           </a>

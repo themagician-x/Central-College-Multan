@@ -43,7 +43,10 @@ export default function ContactPage() {
                     </dt>
                     <dd className="mt-1 text-[0.95rem] font-semibold text-navy-900">
                       {d.href ? (
-                        <a href={d.href} className="transition-colors hover:text-gold-700">
+                        <a
+                          href={d.href}
+                          className="-my-1.5 inline-block break-words py-2 transition-colors hover:text-gold-700"
+                        >
                           {d.value}
                         </a>
                       ) : (

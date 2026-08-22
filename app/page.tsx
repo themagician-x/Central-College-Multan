@@ -113,7 +113,7 @@ export default function Home() {
               </p>
               <Link
                 href="/campus"
-                className="inline-flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-gold-700 transition-colors hover:text-navy-800"
+                className="-my-2 inline-flex items-center gap-2 py-2.5 font-mono text-xs font-semibold uppercase tracking-[0.14em] text-gold-700 transition-colors hover:text-navy-800"
               >
                 Read our story
                 <span aria-hidden="true">→</span>
