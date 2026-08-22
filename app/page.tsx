@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import CountUp from "@/components/CountUp";
+import Crest from "@/components/Crest";
 import { college, stats, programLevels, events } from "@/lib/data";
 
 export default function Home() {
@@ -17,7 +18,8 @@ export default function Home() {
               "radial-gradient(circle, rgba(201,162,39,0.5) 0%, transparent 65%)",
           }}
         />
-        <div className="relative mx-auto max-w-6xl px-4 pb-20 pt-16 sm:px-6 sm:pb-28 sm:pt-24">
+        <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-4 pb-20 pt-16 sm:px-6 sm:pb-28 sm:pt-24 lg:grid-cols-[1.1fr_0.9fr]">
+          <div>
           <Reveal>
             <p className="eyebrow eyebrow-light">
               Est. {college.established} · Multan, Pakistan
@@ -51,6 +53,12 @@ export default function Home() {
                 Visit the Campus
               </Link>
             </div>
+          </Reveal>
+          </div>
+
+          {/* the college seal fills the half the copy leaves open */}
+          <Reveal delay={320} className="hidden justify-center lg:flex">
+            <Crest />
           </Reveal>
         </div>
 
