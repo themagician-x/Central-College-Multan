@@ -2,7 +2,14 @@
 
 import { useEffect, useRef } from "react";
 
-/** Wraps children in a scroll-reveal container (IntersectionObserver). */
+/**
+ * Wraps children in a scroll-reveal container (IntersectionObserver).
+ *
+ * `min-w-0` because these are almost always grid or flex children, and such
+ * children default to min-width:auto — they refuse to shrink below their
+ * content's min-content width. One of these was 387px wide inside a 288px
+ * grid column on the contact page, pushing text off the side of a phone.
+ */
 export default function Reveal({
   children,
   className = "",
@@ -31,7 +38,7 @@ export default function Reveal({
   }, []);
 
   return (
-    <div ref={ref} className={`reveal ${className}`} style={delay ? { transitionDelay: `${delay}ms` } : undefined}>
+    <div ref={ref} className={`reveal min-w-0 ${className}`} style={delay ? { transitionDelay: `${delay}ms` } : undefined}>
       {children}
     </div>
   );
